@@ -2,6 +2,8 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
+//오른쪽 버튼 클릭시 메뉴 glutCreateMenu 
+
 GLboolean IsSphere = true;
 
 void MyDisplay() {
@@ -25,7 +27,7 @@ void MyMainMenu(int entryID) {
 }
 
 int main(int argc, char** argv) {
-    glutInit(&argc,argv);
+    glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB);
     glutInitWindowSize(300, 300);
     glutInitWindowPosition(0, 0);
