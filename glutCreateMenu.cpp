@@ -9,16 +9,16 @@ GLboolean IsSphere = true;
 void MyDisplay() {
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(0.5, 0.0, 0.5);
-    if (IsSphere)
-        glutWireSphere(0.2, 15, 15);
+    if (IsSphere)                                           // following the ex--> IsSphere change true boolean so, we can draw Wire Sphere
+        glutWireSphere(0.2, 15, 15);                        // drawing by wire sphere 
     else
-        glutWireTorus(0.1, 0.3, 40, 20);
+        glutWireTorus(0.1, 0.3, 40, 20);                    // drawing torus
     glFlush();
 }
 
-void MyMainMenu(int entryID) {
-    if (entryID == 1)
-        IsSphere = true;
+void MyMainMenu(int entryID) {                              // when you select the menu option
+    if (entryID == 1)                                       // execute the drawing action by true or false
+        IsSphere = true;                                    // ex. when you click the 'Draw Sphere'    --> option id will be '1' --> 'true'
     else if (entryID == 2)
         IsSphere = false;
     else if (entryID == 3)
@@ -38,12 +38,12 @@ int main(int argc, char** argv) {
     glLoadIdentity();
     glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
 
-    GLint MyMainMenuID = glutCreateMenu(MyMainMenu);
-    glutAddMenuEntry("Draw Sphere", 1);
+    GLint MyMainMenuID = glutCreateMenu(MyMainMenu);        // glutCreateMenu : what kind of menu style 
+    glutAddMenuEntry("Draw Sphere", 1);                     // when the menu select, saving the option number id 1 or 2 or 3
     glutAddMenuEntry("Draw Torus", 2);
     glutAddMenuEntry("Exit", 3);
-    glutAttachMenu(GLUT_RIGHT_BUTTON);
-    glutDisplayFunc(MyDisplay);
-    glutMainLoop();
-    return 0;
+    glutAttachMenu(GLUT_RIGHT_BUTTON);                      // glutAttachMenu : adding menu options , GLUT_RIGHT_BUTTON: Right button of yout mouse
+    glutDisplayFunc(MyDisplay);                             // MyDisplay 함수를 등록해두고, 
+    glutMainLoop();                                         // glutMainLoop에 들어가면 execute. 
+    return 0;   
 }
