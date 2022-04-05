@@ -3,6 +3,8 @@
 #include <GL/gl.h>
 #include <time.h>
 
+// 타이머 콜백 함수
+
 unsigned char PALETTE[16][3] = {
     { 255, 255, 255 },      // WHITE
     {   0, 255, 255 },      // CYAN
@@ -43,13 +45,13 @@ void MyDisplay() {
     glutSwapBuffers();                  // 버퍼 swap 함수
 }
 
-void MyTimer(int Value) {
-    if (Delta < 2.0f)
+void MyTimer(int Value) {               // 형식적인 value 변수, 사용되는 부분이 없음. 
+    if (Delta < 2.0f)                   // Delta : 사각형을 그릴 때 좌표 값을 증감 시키며 회전 하는 변수 
         Delta = Delta + 0.01;
     else {
         Delta = 0.0;
-        if (++Index >= 15) {
-            Index = 0;
+        if (++Index >= 15) {            // index 증가시키며, delta가 2를 넘으면, 인덱스가 15를 ㅓㅁ으면 (한바퀴 돌면) 그때 color값을 변경. 
+            Index = 0;                  
             glClear(GL_COLOR_BUFFER_BIT);
         }
     }
