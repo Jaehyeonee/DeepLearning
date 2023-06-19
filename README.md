@@ -1,4 +1,4 @@
 # Deep Learning project
 ## HI, 😎 
 
-**🗂** Archiving the DL project, which i study.
+**🗂** Archiving the DL project, that i study.
